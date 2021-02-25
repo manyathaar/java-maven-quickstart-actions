@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.work</groupId>
-	<artifactId>calculator-api</artifactId>
+	<artifactId>java-maven-quickstart-actions</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 	<name>calculator</name>
 	<parent>
@@ -28,7 +28,7 @@
 	</dependencies>
 	<properties>
 		<java.version>11</java.version>
-		  <sonar.projectKey>govindarajanv_calculator-api</sonar.projectKey>
+		  <sonar.projectKey>govindarajanv_java-maven-quickstart-actions</sonar.projectKey>
 		  <sonar.organization>govindarajanv</sonar.organization>
 		  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
@@ -36,7 +36,7 @@
     		<repository>
       			<id>github</id>
       				<name>GitHub Packages</name>
-      				<url>https://maven.pkg.github.com/govindarajanv/calculator-api</url>
+				<url>https://maven.pkg.github.com/govindarajanv/java-maven-quickstart-actions</url>
     		</repository>
   	</distributionManagement>
 	<build>
