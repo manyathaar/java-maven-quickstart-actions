@@ -177,7 +177,7 @@ jobs:
           heroku container:login
           app_version=$(heroku apps:info java-maven-quickstart-service -j | jq ."dynos[0].release.version")
           echo "Current App version is $app_version"
-          heroku container:rm web -a java-maven-quickstart-service
+          heroku container:rm web -a java-maven-quickstart-service || true
           heroku container:release web -a java-maven-quickstart-service
           app_version=$(heroku apps:info java-maven-quickstart-service -j | jq ."dynos[0].release.version")
           echo "Released App version is $app_version"

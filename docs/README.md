@@ -1,8 +1,8 @@
-# calculator-api
+# Java Maven Service Quickstart
 
-Coding exercise:
+Java Maven Service Quickstart:
 
-Using Java, implement a simple calculator web service that caches the results of its computations, with endpoints in a format similar to the following:
+This quickstart boilerplate repository has a simple calculator web service implemented that caches the results of its computations, with endpoints in a format similar to the following:
 
 /add/{a}/{b}/{c}
 /subtract/{a}/{b}/{c}
