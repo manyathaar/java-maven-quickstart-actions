@@ -171,15 +171,15 @@ jobs:
           sudo apt-get install libxml2-utils
           docker login --username=$(heroku whoami) --password=$(heroku auth:token) registry.heroku.com
           VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
-          docker build -t registry.heroku.com/calculator-java-maven-service/web:$VERSION --build-arg value=$VERSION . -f Dockerfile
-          docker build -t registry.heroku.com/calculator-java-maven-service/web:latest --build-arg value=$VERSION . -f Dockerfile
-          docker push registry.heroku.com/calculator-java-maven-service/web:latest
+          docker build -t registry.heroku.com/java-maven-quickstart-service/web:$VERSION --build-arg value=$VERSION . -f Dockerfile
+          docker build -t registry.heroku.com/java-maven-quickstart-service/web:latest --build-arg value=$VERSION . -f Dockerfile
+          docker push registry.heroku.com/java-maven-quickstart-service/web:latest
           heroku container:login
-          app_version=$(heroku apps:info calculator-java-maven-service -j | jq ."dynos[0].release.version")
+          app_version=$(heroku apps:info java-maven-quickstart-service -j | jq ."dynos[0].release.version")
           echo "Current App version is $app_version"
-          heroku container:rm web -a calculator-java-maven-service
-          heroku container:release web -a calculator-java-maven-service
-          app_version=$(heroku apps:info calculator-java-maven-service -j | jq ."dynos[0].release.version")
+          heroku container:rm web -a java-maven-quickstart-service
+          heroku container:release web -a java-maven-quickstart-service
+          app_version=$(heroku apps:info java-maven-quickstart-service -j | jq ."dynos[0].release.version")
           echo "Released App version is $app_version"
        env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
@@ -188,7 +188,7 @@ jobs:
      - name: Post Deployment Check
        run: |
         sleep 60
-        result=$(curl -s https://calculator-java-maven-service.herokuapp.com/addition/1/2/3 | jq .result)
+        result=$(curl -s https://java-maven-quickstart-service.herokuapp.com/addition/1/2/3 | jq .result)
         if [ $result -eq 6 ]; then
           echo "Application is successfully deployed in production"
         else
