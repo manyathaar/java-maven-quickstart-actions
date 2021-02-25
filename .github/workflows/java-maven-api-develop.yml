@@ -52,7 +52,7 @@ jobs:
         java -jar target/calculator-api-$VERSION.jar &
         PID=$!
         sleep 20
-        result=$(curl -s http://localhost:8080/addition/1/2/3 | jq .result)
+        result=$(curl -s http://localhost:7111/addition/1/2/3 | jq .result)
         if [ $result -eq 6 ]; then
           echo "API Contract Testing is successful"
         else
