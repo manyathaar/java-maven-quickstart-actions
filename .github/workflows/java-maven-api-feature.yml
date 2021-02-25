@@ -58,13 +58,13 @@ jobs:
       run: |
         sudo apt-get install libxml2-utils
         VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
-        docker build -t govindarajanv/calculator-api:$VERSION --build-arg value=$VERSION .
-        docker build -t govindarajanv/calculator-api:latest --build-arg value=$VERSION .
+        docker build -t govindarajanv/java-maven-quickstart-service:$VERSION --build-arg value=$VERSION .
+        docker build -t govindarajanv/java-maven-quickstart-service:latest --build-arg value=$VERSION .
         docker images
     - name: Test Image
       run: |
         VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
-        docker-compose build --build-arg version=$VERSION calculator-api
+        docker-compose build --build-arg version=$VERSION java-maven-quickstart-service
         docker-compose up -d
         docker ps
         sleep 60

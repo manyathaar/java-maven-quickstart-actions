@@ -31,11 +31,11 @@ jobs:
           mvn clean install
           sudo apt-get install libxml2-utils
           VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
-          docker build -t govindarajanv/calculator-api:$VERSION .
-          docker build -t govindarajanv/calculator-api:latest .
+          docker build -t govindarajanv/java-maven-quickstart-service:$VERSION .
+          docker build -t govindarajanv/java-maven-quickstart-service:latest .
           docker images
-          docker push govindarajanv/calculator-api:$VERSION 
-          docker push govindarajanv/calculator-api:latest
+          docker push govindarajanv/java-maven-quickstart-service:$VERSION 
+          docker push govindarajanv/java-maven-quickstart-service:latest
       - name: Share artifacts
         uses: actions/upload-artifact@v2
         with:

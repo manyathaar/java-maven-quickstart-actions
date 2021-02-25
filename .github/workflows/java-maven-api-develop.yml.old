@@ -49,7 +49,7 @@ jobs:
         sudo apt-get install libxml2-utils
         #VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:execxml)
         VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
-        java -jar target/java-maven-quickstart-actions-$VERSION.jar &
+        java -jar target/calculator-api-$VERSION.jar &
         PID=$!
         sleep 20
         result=$(curl -s http://localhost:7111/addition/1/2/3 | jq .result)
@@ -71,18 +71,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11.0.4
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache Maven packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
       - name: SonarCloud Scan
         run: mvn -B clean verify -Psonar -Dsonar.login=$SONAR_TOKEN
         env:
@@ -110,8 +98,8 @@ jobs:
       run: |
         sudo apt-get install libxml2-utils
         VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
-        docker build -t govindarajanv/java-maven-quickstart-service:$VERSION .
-        docker build -t govindarajanv/java-maven-quickstart-service:latest .
+        docker build -t govindarajanv/calculator-api:$VERSION .
+        docker build -t govindarajanv/calculator-api:latest .
         docker images
     - name: Test Image
       run: |
@@ -131,8 +119,8 @@ jobs:
     - name: Publish the image
       run: |
         VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
-        docker push govindarajanv/java-maven-quickstart-service:$VERSION 
-        docker push govindarajanv/java-maven-quickstart-service:latest
+        docker push govindarajanv/calculator-api:$VERSION 
+        docker push govindarajanv/calculator-api:latest
     - name: Share artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -171,15 +159,15 @@ jobs:
           sudo apt-get install libxml2-utils
           docker login --username=$(heroku whoami) --password=$(heroku auth:token) registry.heroku.com
           VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
-          docker build -t registry.heroku.com/java-maven-quickstart-service/web:$VERSION --build-arg value=$VERSION . -f Dockerfile
-          docker build -t registry.heroku.com/java-maven-quickstart-service/web:latest --build-arg value=$VERSION . -f Dockerfile
-          docker push registry.heroku.com/java-maven-quickstart-service/web:latest
+          docker build -t registry.heroku.com/calculator-java-maven-service/web:$VERSION --build-arg value=$VERSION . -f Dockerfile
+          docker build -t registry.heroku.com/calculator-java-maven-service/web:latest --build-arg value=$VERSION . -f Dockerfile
+          docker push registry.heroku.com/calculator-java-maven-service/web:latest
           heroku container:login
-          app_version=$(heroku apps:info java-maven-quickstart-service -j | jq ."dynos[0].release.version")
+          app_version=$(heroku apps:info calculator-java-maven-service -j | jq ."dynos[0].release.version")
           echo "Current App version is $app_version"
-          heroku container:rm web -a java-maven-quickstart-service || true
-          heroku container:release web -a java-maven-quickstart-service
-          app_version=$(heroku apps:info java-maven-quickstart-service -j | jq ."dynos[0].release.version")
+          heroku container:rm web -a calculator-java-maven-service
+          heroku container:release web -a calculator-java-maven-service
+          app_version=$(heroku apps:info calculator-java-maven-service -j | jq ."dynos[0].release.version")
           echo "Released App version is $app_version"
        env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
@@ -188,7 +176,7 @@ jobs:
      - name: Post Deployment Check
        run: |
         sleep 60
-        result=$(curl -s https://java-maven-quickstart-service.herokuapp.com/addition/1/2/3 | jq .result)
+        result=$(curl -s https://calculator-java-maven-service.herokuapp.com/addition/1/2/3 | jq .result)
         if [ $result -eq 6 ]; then
           echo "Application is successfully deployed in production"
         else
