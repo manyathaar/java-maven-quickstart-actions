@@ -49,7 +49,7 @@ jobs:
         sudo apt-get install libxml2-utils
         #VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:execxml)
         VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
-        java -jar target/calculator-api-$VERSION.jar &
+        java -jar target/java-maven-quickstart-actions-$VERSION.jar &
         PID=$!
         sleep 20
         result=$(curl -s http://localhost:7111/addition/1/2/3 | jq .result)
@@ -110,8 +110,8 @@ jobs:
       run: |
         sudo apt-get install libxml2-utils
         VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
-        docker build -t govindarajanv/calculator-api:$VERSION .
-        docker build -t govindarajanv/calculator-api:latest .
+        docker build -t govindarajanv/java-maven-quickstart-service:$VERSION .
+        docker build -t govindarajanv/java-maven-quickstart-service:latest .
         docker images
     - name: Test Image
       run: |
@@ -131,8 +131,8 @@ jobs:
     - name: Publish the image
       run: |
         VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
-        docker push govindarajanv/calculator-api:$VERSION 
-        docker push govindarajanv/calculator-api:latest
+        docker push govindarajanv/java-maven-quickstart-service:$VERSION 
+        docker push govindarajanv/java-maven-quickstart-service:latest
     - name: Share artifacts
       uses: actions/upload-artifact@v2
       with:
