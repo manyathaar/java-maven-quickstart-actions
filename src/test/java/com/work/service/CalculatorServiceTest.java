@@ -30,7 +30,7 @@ public class CalculatorServiceTest {
 	@Test
 	public void testAdd() {
 		Integer result = calculatorService.add(1, 4);
-		assertEquals(Integer.valueOf(5), result);
+		assertEquals(Integer.valueOf(6), result);
 	}
 
 	@Test(expected = WrongNumberOfArgumentsException.class)
