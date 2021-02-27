@@ -32,14 +32,14 @@ public class CalculatorControllerIntegrationTest {
 	public void testGetAdditionTwoArguments() throws Exception {
 		ResultResource resultResource = this.restTemplate.getForObject(getPath() + "/addition/2/3",
 				ResultResource.class);
-		assertThat(resultResource.getResult(), equalTo(6));
+		assertThat(resultResource.getResult(), equalTo(5));
 	}
 
 	@Test
 	public void testGetAdditionThreeArguments() throws Exception {
 		ResultResource resultResource = this.restTemplate.getForObject(getPath() + "/addition/2/3/1",
 				ResultResource.class);
-		assertThat(resultResource.getResult(), equalTo(7));
+		assertThat(resultResource.getResult(), equalTo(6));
 	}
 
 	@Test

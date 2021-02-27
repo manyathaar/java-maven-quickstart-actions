@@ -23,7 +23,7 @@ public class CalculatorService {
 
 		validate(numbers);
 
-		return Arrays.stream(numbers).mapToInt(Integer::intValue).sum()+1;
+		return Arrays.stream(numbers).mapToInt(Integer::intValue).sum();
 	}
 
 	@Cacheable("subtraction")
