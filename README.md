@@ -21,6 +21,7 @@ Each endpoint should support the GET method, and it should return the result in 
 - [DockerHub](https://hub.docker.com/repository/docker/govindarajanv/java-maven-quickstart-service/tags?page=1&ordering=last_updated)
 - [Heroku Dashboard](https://dashboard.heroku.com/apps/java-maven-quickstart-service/activity)
 - [API](https://java-maven-quickstart-service.herokuapp.com/addition/1/2/3)
+- [CodeCov](https://app.codecov.io/gh/govindarajanv/java-maven-quickstart-actions/commits?page=1)
 
 ## References
 - ltenconi/calculator-api
