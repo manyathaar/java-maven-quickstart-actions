@@ -23,6 +23,7 @@ Each endpoint should support the GET method, and it should return the result in 
 - [Heroku Dashboard](https://dashboard.heroku.com/apps/java-maven-quickstart-service/activity)
 - [API](https://java-maven-quickstart-service.herokuapp.com/addition/1/2/3)
 - [CodeCov](https://app.codecov.io/gh/govindarajanv/java-maven-quickstart-actions/commits?page=1)
+- [Marketplace](https://github.com/marketplace/actions/govind-secret-finder)
 
 ## References
 - ltenconi/calculator-api
