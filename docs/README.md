@@ -13,6 +13,7 @@ Each endpoint should support the GET method, and it should return the result in 
 
 ### Note: This static site will be implemented using jekyll or mkdocs
 
+
 ## Links
 
 - [Static Site for Documentation](https://govindarajanv.github.io/java-maven-quickstart-actions/)
