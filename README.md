@@ -25,6 +25,7 @@ Each endpoint should support the GET method, and it should return the result in 
 - [CodeCov](https://app.codecov.io/gh/govindarajanv/java-maven-quickstart-actions/commits?page=1)
 - [Marketplace](https://github.com/marketplace/actions/govind-secret-finder)
 - [Pagerduty](https://govindarajanv.pagerduty.com/incidents)
+- [Grafana](https://govindarajanv.grafana.net/dashboard/)
 
 ## References
 - ltenconi/calculator-api
