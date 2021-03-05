@@ -221,4 +221,22 @@ jobs:
         else
           echo "Prod deployment failed"
           exit 1
-        fi   
+        fi
+  Close:
+    name: Close Issue
+    needs: [deploy]
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v1
+     - uses: octokit/request-action@v2.x
+       id: create_check_run
+       with:
+         route: PATCH /repos/govindarajanv/java-maven-quickstart-actions/issues/19
+         owner: govindarajanv
+         repo: java-maven-quickstart-actions
+         name: "Test check run"
+         head_sha: ${{ github.sha }}
+         body: |
+           '{"title":"Deployed"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
