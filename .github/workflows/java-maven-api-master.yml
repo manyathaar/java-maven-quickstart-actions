@@ -240,4 +240,4 @@ jobs:
        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REQUEST_BODY: |
-             title=Deployed
+             "title":"Deployed"
