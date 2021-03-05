@@ -236,7 +236,8 @@ jobs:
          repo: java-maven-quickstart-actions
          name: "Test check run"
          head_sha: ${{ github.sha }}
-         body: |
-           {"title":"Deployed"}
-        env:
+         body: ${{ toJSON(env.REQUEST_BODY) }}
+       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REQUEST_BODY: |
+             title=Deployed
