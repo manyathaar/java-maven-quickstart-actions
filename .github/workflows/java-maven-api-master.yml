@@ -179,6 +179,9 @@ jobs:
     environment:
       name: heroku-prod
       url: https://dashboard.heroku.com/apps/java-maven-quickstart-service/activity
+    steps:
+     - name: Release Gating & Approval #set the whatever name you want to this step
+       run: echo "Approvals are in place"
   deploy:
     name: Deploy/Release to production
     needs: [integration-test]
