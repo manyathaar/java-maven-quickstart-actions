@@ -184,7 +184,7 @@ jobs:
        run: echo "Approvals are in place"
   deploy:
     name: Deploy/Release to production
-    needs: [integration-test]
+    needs: [gate]
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v1
