@@ -1,6 +1,6 @@
 # Java Maven Quickstart Boiler Plate Repository
 
-This quickstart boilerplate repository has a simple calculator web service implemented that caches the results of its computations, with endpoints in a format similar to the following:
+This quickstart boilerplate repository has a simple calculator web service implemented that caches the results of its computations, with endpoints in a format similar to the followingggg:
 
 - /addition/{a}/{b}/{c}
 - /subtraction/{a}/{b}/{c}
