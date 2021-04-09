@@ -1,7 +1,10 @@
+|  Github Actions | SonarCloud | Hits | License | Service Health | Azure DevOps |
+|  :-------------: | :------: | :------------: | :------: | :-------: | :-------: |
 [![Java CI with Maven](https://github.com/govindarajanv/java-maven-quickstart-actions/actions/workflows/java-maven-api-master.yml/badge.svg)](https://github.com/govindarajanv/java-maven-quickstart-actions/actions/workflows/java-maven-api-master.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=govindarajanv_java-maven-quickstart-actions&metric=alert_status)](https://sonarcloud.io/dashboard?id=govindarajanv_java-maven-quickstart-actions)
 [![HitCount](http://hits.dwyl.com/govindarajanv/java-maven-quickstart-actions.svg)](http://hits.dwyl.com/govindarajanv/java-maven-quickstart-actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![API](https://img.shields.io/website?url=https%3A%2F%2Fjava-maven-quickstart-service.herokuapp.com%2Faddition%2F1%2F2%2F3)
 ![API](https://img.shields.io/website?url=https%3A%2F%2Fjava-maven-quickstart-service.herokuapp.com%2Faddition%2F1%2F2%2F3)
 
 # Java Maven Quickstart Boiler Plate Repository
