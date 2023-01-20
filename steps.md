@@ -1,5 +1,5 @@
 # validate
-mvn validate
+mvn validate 
 
 # compile
 mvn compile
