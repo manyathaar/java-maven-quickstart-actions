@@ -13,3 +13,4 @@ ENV envValue=$value
 #ENTRYPOINT ["java","-jar","calculator-api-${envValue}.jar"]
 CMD java -jar -Dserver.port=$PORT java-maven-quickstart-actions-${envValue}.jar
 HEALTHCHECK CMD curl -s --fail http://localhost:8080/addition/1/2/3 || exit 1
+
